@@ -3,6 +3,7 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\KategoriController;
+use App\Http\Controllers\BlogController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -29,3 +30,6 @@ Route::get('/login',[AuthController::class, 'login']);
 Route::get('/tambah_kategori', function(){ return view('kategori.create');});
 
 Route::post('/create', [KategoriController::class, 'store'])->name('store');
+
+Route::get('/tambah_blog',[BlogController::class, 'create']);
+Route::post('/store', [BlogController::class, 'store'])->name('store_blog');
