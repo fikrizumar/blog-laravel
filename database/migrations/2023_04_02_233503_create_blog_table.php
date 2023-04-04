@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('blog', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('category_id');
+            $table->foreignId('kategori_id');
             $table->string('title');
             $table->string('slug')->unique();
             $table->string('image');

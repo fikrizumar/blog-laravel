@@ -12,7 +12,8 @@ class Blog extends Model
     protected $table = "blog";
     protected $fillable = ['title', 'slug', 'image', 'konten'];
 
-    public function blog(){
+    public function categories(){
         
+        return $this->belongsTo('App\Models\Kategori', 'kategori_id');
     }
 }

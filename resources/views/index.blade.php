@@ -15,9 +15,11 @@
                     <li class="nav-item">
                       <a class="fs-5 nav-link active" href="">Home</a>
                     </li>
-                    <li class="nav-item">
-                      <a class="fs-5 nav-link active" href="/komputer">Komputer</a>
-                    </li>
+                    @foreach ($data_kategori as $kategori)
+                      <li class="nav-item">
+                        <a class="fs-5 nav-link active" href="{{ route('kategori_blog',$kategori->slug) }}">{{ $kategori->name }}</a>
+                      </li>
+                    @endforeach
                 </ul>
             </div>
         </div>

@@ -22,10 +22,10 @@ Route::get('/welcome', function () {
 });
 
 Route::get('/', [IndexController::class, 'index']);
+Route::get('/{kategori}',[IndexController::class, 'kategori'])->name('kategori_blog');
 
 Route::get('/login',[AuthController::class, 'login']);
 
-// Route::get('/{kategori}',[IndexController::class, 'kategori']);
 
 Route::get('/tambah_kategori', function(){ return view('kategori.create');});
 
