@@ -9,6 +9,9 @@
     <label for="">Kategori</label>
     <input class="form-control" type="text" name="kategori">
 
+    <label for="">Slug</label>
+    <input class="form-control" type="text" name="slug">
+
     <button class="btn btn-primary" type="submit">Tambah</button>
 </form>
 @endsection

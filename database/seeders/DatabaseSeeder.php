@@ -24,7 +24,7 @@ class DatabaseSeeder extends Seeder
         // ]);
 
         Blog::create([
-            'category_id' => 1,
+            'kategori_id' => 1,
             'title' => 'Programmer Handal',
             'slug' => 'programmer-handal',
             'image' => 'prg.jpg',
@@ -33,7 +33,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         Blog::create([
-            'category_id' => 2,
+            'kategori_id' => 2,
             'title' => 'Teknologi Cepat',
             'slug' => 'teknologi-cepat',
             'image' => 'tek.jpg',
@@ -41,7 +41,7 @@ class DatabaseSeeder extends Seeder
 
         ]);
         Blog::create([
-            'category_id' => 1,
+            'kategori_id' => 1,
             'title' => 'Senang Coding',
             'slug' => 'senang-coding',
             'image' => 'sen.jpg',

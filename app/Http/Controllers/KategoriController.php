@@ -9,7 +9,10 @@ class KategoriController extends Controller
 {
     public function store(Request $request){
 
-        $create = ['name' => $request->kategori];
+        $create = [
+            'name' => $request->kategori,
+            'slug'=> $request->slug,
+        ];
 
         $coba = Kategori::create($create);
 

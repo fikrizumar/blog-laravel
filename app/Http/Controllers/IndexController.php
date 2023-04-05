@@ -16,10 +16,10 @@ class IndexController extends Controller
         ]);
     }
 
-    public function kategori(Kategori $kategori){
+    public function kategori(Blog $kategori){
 
-        $blog = $kategori->blog()->get();
+        $blog = $kategori->categories()->get();
 
-        return $blog;
+        dd($blog);
     }
 }

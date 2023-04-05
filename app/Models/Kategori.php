@@ -14,7 +14,7 @@ class Kategori extends Model
 
     public function blog(){
 
-        return $this->hasMany('App\Models\Blog', 'kategori_id');
+        return $this->hasMany('App\Models\Blog', 'kategori_id', 'id');
     }
     
 }
