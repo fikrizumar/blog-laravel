@@ -13,6 +13,9 @@
         <label for="">Slug</label>
         <input type="text" class="form-control" name="slug">
 
+        <label for="">Penulis</label>
+        <input type="text" class="form-control" name="writer">
+
         <label for="">Kategori</label>
         <select class="form-select" name="category_id" id="">
             <option value=""></option>

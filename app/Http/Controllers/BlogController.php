@@ -16,6 +16,7 @@ class BlogController extends Controller
             'category_id',
             'judul' => 'required',
             'slug' => 'required',
+            'writer' => 'required',
             'gambar' => 'required',
             'konten' => 'required',
         ]);
@@ -24,6 +25,7 @@ class BlogController extends Controller
             'category_id'=>$request->category_id,
             'title'=> $request->judul,
             'slug'=> $request->slug,
+            'writer'=> $request->writer,
             'image'=> $request->gambar,
             'konten'=> $request->konten,
         ];
