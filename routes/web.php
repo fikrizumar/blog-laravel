@@ -4,6 +4,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\BlogController;
+use App\Models\Kategori;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,16 +21,15 @@ use Illuminate\Support\Facades\Route;
 Route::get('/welcome', function () {
     return view('welcome');
 });
-
 Route::get('/', [IndexController::class, 'index']);
-Route::get('/{kategori}',[IndexController::class, 'kategori'])->name('kategori_blog');
-
-Route::get('/login',[AuthController::class, 'login']);
-
-
-Route::get('/tambah_kategori', function(){ return view('kategori.create');});
+Route::get('/login', [AuthController::class, 'login']);
+Route::get('/tambah_kategori',function(){
+    return view('kategori.create');
+});
+Route::get('/tambah_blog',[BlogController::class, 'create']);
+Route::get('/{kategori}', [IndexController::class, 'kategori'])->name('kategori_blog');
 
 Route::post('/create', [KategoriController::class, 'store'])->name('store');
 
-Route::get('/tambah_blog',[BlogController::class, 'create']);
+
 Route::post('/store', [BlogController::class, 'store'])->name('store_blog');
