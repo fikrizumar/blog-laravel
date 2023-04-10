@@ -4,6 +4,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,16 +21,29 @@ use Illuminate\Support\Facades\Route;
 Route::get('/welcome', function () {
     return view('welcome');
 });
-
 Route::get('/', [IndexController::class, 'index']);
-Route::get('/{kategori}',[IndexController::class, 'kategori'])->name('kategori_blog');
+Route::get('/{kategori}', [IndexController::class, 'kategori'])->name('kategori_blog');
+Route::get('/{slug}',[IndexController::class, 'view'])->name('slug_blog');
+    
+Route::get('/login', function(){
+    return 'login';
+});
+Route::post('/postlogin',[AuthController::class, 'postlogin']);
+Route::get('/logout',[AuthController::class, 'logout']);
 
-Route::get('/login',[AuthController::class, 'login']);
+Route::group(['middleware' => ['auth']], function() {
 
+    Route::get('/dashboard',[DashboardController::class, 'index']);
+    
+    Route::get('/tambah_kategori',function(){
+        return view('kategori.create');
+    });
+    Route::post('/store_kategori', [KategoriController::class, 'store'])->name('store_kategori');
+    
+    Route::get('/tambah_blog',[BlogController::class, 'create']);
+    Route::post('/store', [BlogController::class, 'store'])->name('store_blog');
 
-Route::get('/tambah_kategori', function(){ return view('kategori.create');});
-
-Route::post('/create', [KategoriController::class, 'store'])->name('store');
-
-Route::get('/tambah_blog',[BlogController::class, 'create']);
-Route::post('/store', [BlogController::class, 'store'])->name('store_blog');
+    
+    
+    
+});

@@ -2,39 +2,49 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\BLog;
+use App\Models\Blog;
+use App\Models\User;
+use App\Models\Kategori;
 use Illuminate\Http\Request;
 
 class BlogController extends Controller
 {
     public function create(){
-        return view('user.create_blog');
+        return view('user.create_blog',[
+            'data_kategori' => Kategori::all(),
+        ]);
     }
 
     public function store(Request $request){
+
+        // dd(auth()->user());
         $request->validate([
-            'category_id',
             'judul' => 'required',
-            'slug' => 'required',
+            // 'slug' => 'required',
+            // 'writer' => 'required',
             'gambar' => 'required',
             'konten' => 'required',
         ]);
 
         $tambah = [
-            'category_id'=>$request->category_id,
+            // memasukkan postingan user sesuai id nya
+            // 'user_id' => auth()->id(),
+            'kategori_id'=>$request->kategori_id,
+            // 'writer'=> $request->writer,
             'title'=> $request->judul,
-            'slug'=> $request->slug,
+            'slug'=> \Str::slug($request->judul),
             'image'=> $request->gambar,
             'konten'=> $request->konten,
         ];
 
-        $create =Blog::create($tambah);
+        // menambahkan postingan blog sesuai user yang login
+        $create =auth()->user()->blogs()->create($tambah);
 
+        // dd($create);
         if ($create) {
-
             return back();
         }
         
-
+            
     }
 }

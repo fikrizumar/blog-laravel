@@ -23,45 +23,6 @@ class DatabaseSeeder extends Seeder
         //     'email' => 'test@example.com',
         // ]);
 
-        Blog::create([
-            'kategori_id' => 1,
-            'title' => 'Programmer Handal',
-            'slug' => 'programmer-handal',
-            'image' => 'prg.jpg',
-            'konten'=> 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis illo eius voluptatibus saepe dignissimos est iure officia sapiente quod doloribus.',
-            
-        ]);
-
-        Blog::create([
-            'kategori_id' => 2,
-            'title' => 'Teknologi Cepat',
-            'slug' => 'teknologi-cepat',
-            'image' => 'tek.jpg',
-            'konten'=> 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis illo eius voluptatibus saepe dignissimos est iure officia sapiente quod doloribus.',
-
-        ]);
-        Blog::create([
-            'kategori_id' => 1,
-            'title' => 'Senang Coding',
-            'slug' => 'senang-coding',
-            'image' => 'sen.jpg',
-            'konten'=> 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis illo eius voluptatibus saepe dignissimos est iure officia sapiente quod doloribus.',
-
-        ]);
-
-        Kategori::create([
-            'name' => 'Programmer',
-            'slug' => 'programmer'
-        ]);
-
-        Kategori::create([
-            'name' => 'Teknologi',
-            'slug' => 'teknologi'
-        ]);
-
-        Kategori::create([
-            'name' => 'Developer',
-            'slug' => 'developer'
-        ]);
+        
     }
 }

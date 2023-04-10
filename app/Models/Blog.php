@@ -9,11 +9,16 @@ class Blog extends Model
 {
     use HasFactory;
 
-    protected $table = "blog";
+    protected $table = 'blog';
     protected $fillable = ['title','kategori_id', 'slug', 'image', 'konten'];
 
     public function categories(){
         
-        return $this->belongsTo('App\Models\Kategori', 'kategori_id');
+        // belongsto ini untuk mengambil data kategori dari tabel kategori
+        return $this->belongsTo(Kategori::class, 'kategori_id');
+    }
+
+    public function writer(){
+        return $this->belongsTo(User::class,'user_id' );
     }
 }

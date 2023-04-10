@@ -13,15 +13,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('blog', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('user_id');
-            $table->foreignId('kategori_id');
-            $table->string('title');
-            $table->string('slug')->unique();
-            $table->string('image');
-            $table->text('konten');
-            $table->timestamps();
+        Schema::table('users', function (Blueprint $table) {
+            $table->string('level')->after('name');
         });
     }
 
@@ -32,6 +25,8 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('blog');
+        Schema::table('users', function (Blueprint $table) {
+            $table->dropColumn('level');
+        });
     }
 };

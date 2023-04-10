@@ -11,15 +11,20 @@ class IndexController extends Controller
     public function index(){
 
         return view('index',[
-            'data_blog' => Blog::all(),
+            // latest ini untuk memfilter postingan yang terbaru
+            'data_blog' => Blog::latest()->get()->all(),
             'data_kategori' => Kategori::all(),
         ]);
     }
 
-    public function kategori(Blog $kategori){
+    public function kategori(Kategori $kategori){
 
-        $blog = $kategori->categories()->get();
+        return view('index-kategori',[
+            'data_kategori' => Kategori::all(),
+            'data_blog' => $kategori->blogs,
+        ]);
 
-        dd($blog);
     }
+
+    public function view(){}
 }

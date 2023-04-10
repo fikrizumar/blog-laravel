@@ -3,7 +3,7 @@
 
 @section('content')
     
-<form action="{{ route('store') }}" method="post">
+<form action="{{ route('store_kategori') }}" method="post">
     @csrf
     <h2>Tambah Kategori</h2>
     <label for="">Kategori</label>
